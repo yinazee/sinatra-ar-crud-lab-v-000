@@ -1,1 +1,7 @@
-<h3><%@posts.all.each%></h3>
+<h3><%@posts.all.each do |post|%></h3>
+<div>
+  <p><%=post.name%></p>
+  <p><%=post.content%></p>
+
+</div>
+<%end%>

@@ -1,5 +1,10 @@
-it should show the @post.id's title and content
-<p>
-<%= @post.name%></br>
-<%= @post.content%>
-</p>
+<p><%= @post.name %></p>
+
+<p><%= @post.content %></p>
+
+<!--this pulls the command to the specific post that will be deleted-->
+<form method="post" action="/posts/<%=@post.id%>/delete"> <!--here is the command-->
+  <input id="hidden" type="hidden" name="_method" value="delete">
+
+  <input type="submit" value="delete">
+<form>

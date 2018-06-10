@@ -34,11 +34,20 @@ get '/posts/:id/edit' do #loads edit form
   erb :edit
 end
 
-get '/posts/:id/delete' do
+patch '/posts/:id' do
+  @post = Post.find_by_id(params[:id])
+  @post.name = params[:name]
+  @post.content = params[:content]
+  @post.save
+
+  erb :show
+end
+
+delete '/posts/:id/delete' do
   @post = Post.find_by_id(params[:id])
   @post.delete
-  
-  erb :delete
+
+  erb :deleted
 end
 
 
